@@ -1,59 +1,44 @@
 import React from 'react';
 
 function useLocalStorage(itemName, initialValue) {
- 
   const [item, setItem] = React.useState(initialValue);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
-   
-  React.useEffect(()=> {
-    setTimeout(()=>{
+
+  React.useEffect(() => {
+    setTimeout(() => {
       try {
         const localStorageItem = localStorage.getItem(itemName);
-  
+
         let parsedItem;
-  
+
         if (!localStorageItem) {
           localStorage.setItem(itemName, JSON.stringify(initialValue));
-          parsedItem=[initialValue];
+          parsedItem = [initialValue];
         } else {
           parsedItem = JSON.parse(localStorageItem);
           setItem(parsedItem);
         }
-  
+
         setLoading(false);
       } catch (error) {
-        setLoading(false)
+        setLoading(false);
         setError(true);
       }
     }, 2000);
-  },[]); 
-  
-    const saveItem = (newItem) => {
-      localStorage.setItem(itemName, JSON.stringify(newItem))
-      
-      setItem(newItem);
-    };
-  
-    return {
-      item, 
-      saveItem,
-      loading,
-      error, 
-    };
-    
-  }
+  }, [itemName, initialValue]); 
 
-  export {useLocalStorage};
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem));
+    setItem(newItem);
+  };
 
-// localStorage.removeItem('TODOS_V1');
+  return {
+    item,
+    saveItem,
+    loading,
+    error,
+  };
+}
 
-// const defaultTodos = [
-//   {text: 'Cortar melon insípido', completed: true},
-//   {text: 'Ir al McCarthys a tomar', completed: false},
-//   {text: 'Empezar bird on money', completed: true},
-//   {text: 'Ser frontend', completed: false},
-//   {text: 'Completar un reto extremadamente fácil ', completed: true},
-// ];
-
-// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
+export { useLocalStorage };
