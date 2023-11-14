@@ -1,75 +1,31 @@
-# Repositorio base del Curso de Introducción a React.js en Platzi
+# **TodoMachine - Your Task Manager with React.js** 🚀
 
-¡Hola, Platzinauta!
+Welcome to TodoMachine, a web application powered by React.js designed to showcase my skills as a junior Front End Developer!
 
-En este repositorio encontrarás el código de todas las clases del [Curso de Introducción a React.js](https://platzi.com/reactjs). Para empezar solo debes clonar este repositorio (`git clone`), instalar sus dependencias (`npm i`) y ejecutar la aplicación (`npm start`).
+This project is not only an efficient task manager but also a showcase of key techniques and technologies in the React world.
 
-La rama principal contiene el código con el que eempezamos el curso. En las demás ramas encontrarás el código de las siguientes clases y finalmente el deploy de la aplicación.
 
-¡Mucha suerte aprendiendo React! #NuncaParesDeAprender
+## Key Features:
 
-## Getting Started with Create React App
+ - Basic Operations: Intuitively add, complete, delete, and search tasks. 
+ - Data Persistence: Uses the Local Storage to ensure your tasks are saved even after closing the application. 
+ - Advanced States: Experience loading states and error handling using useEffect.     
+ - React Context: Efficiently organize and manage the application state with React Context.     
+ - Portals and Modals: Create and manage your tasks in a user-friendly environment thanks to the use of portals and modals in React.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies Used:
 
-## Available Scripts
+ - React.js: The foundation of the entire application, enabling a dynamic and responsive user experience.
+ - JavaScript, HTML, CSS: The classic trio for building modern web applications.
 
-In the project directory, you can run:
+## Getting Started:
 
-### `npm start`
+1. Clone the repository: `git clone https://github.com/amanda/todomachine.git`
+2. Install dependencies: `npm install`
+3. Start the application: `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Deployed Version:
+🌐 Deployed version of TodoMachine [here](https://amandalimon.github.io/TodoMachine/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Explore, learn, and enjoy task management with TodoMachine!
