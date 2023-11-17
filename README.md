@@ -1,9 +1,8 @@
 # **TodoMachine - Your Task Manager with React.js** 🚀
 
-Welcome to TodoMachine, a web application powered by React.js designed to showcase my skills as a junior Front End Developer!
+Welcome to TodoMachine, a task management application that allowed me to apply and solidify the basic fundamentals learned in React.js. 
 
-This project is not only an efficient task manager but also a showcase of key techniques and technologies in the React world.
-
+This project not only provided me with the opportunity to develop practical skills in React.js but also enhanced my understanding of building dynamic and interactive web application
 
 ## Key Features:
 
