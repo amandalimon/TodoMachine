@@ -1,12 +1,82 @@
 import React from 'react';
-import {TodoProvider} from '../TodoContext';
-import {AppUI} from './AppUI';
+import { useTodos } from './useTodos'
+import { TodoHeader } from '../TodoHeader';
+import { TodoCounter } from '../TodoCounter';
+import { TodoSearch } from '../TodoSearch';
+import { TodoList } from '../TodoList';
+import { TodoItem } from '../TodoItem';
+import { TodosLoading } from '../TodosLoading';
+import { TodosError } from '../TodosError';
+import { EmptyTodos } from '../EmptyTodos';
+import { CreateButton } from '../CreateButton';
+import { TodoForm } from '../TodoForm';
+import { Modal } from '../Modal';
 
 function App() {
+  const {
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
+    loading,
+    error,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+    addTodo,
+  } = useTodos()
+
   return (
-    <TodoProvider>
-      <AppUI/>
-    </TodoProvider>
+    <>
+      <TodoHeader>
+        <TodoCounter
+          completedTodos={completedTodos}
+          totalTodos={totalTodos}
+        />
+
+        <TodoSearch
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
+      </TodoHeader>
+
+      <TodoList>
+        {loading && (
+          <>
+            <TodosLoading />
+            <TodosLoading />
+            <TodosLoading />
+          </>
+        )}
+        {error && <TodosError />}
+        {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
+
+        {searchedTodos.map(todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        ))}
+      </TodoList>
+
+      <CreateButton
+        setOpenModal={setOpenModal}
+      />
+
+      {openModal && (
+        <Modal>
+          <TodoForm
+            setOpenModal={setOpenModal}
+            addTodo={addTodo}
+          />
+        </Modal>
+      )}
+    </>
   );
 }
 
