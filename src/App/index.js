@@ -11,6 +11,7 @@ import { EmptyTodos } from '../EmptyTodos';
 import { CreateButton } from '../CreateButton';
 import { TodoForm } from '../TodoForm';
 import { Modal } from '../Modal';
+import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 
 function App() {
   const {
@@ -26,11 +27,12 @@ function App() {
     openModal,
     setOpenModal,
     addTodo,
+    syncronizedTodos,
   } = useTodos()
 
   return (
     <>
-      <TodoHeader>
+      <TodoHeader loading={loading}>
         <TodoCounter
           completedTodos={completedTodos}
           totalTodos={totalTodos}
@@ -42,27 +44,27 @@ function App() {
         />
       </TodoHeader>
 
-      <TodoList>
-        {loading && (
-          <>
-            <TodosLoading />
-            <TodosLoading />
-            <TodosLoading />
-          </>
+      <TodoList
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
+        searchText={searchValue}
+        onError={() => <TodosError />}
+        onLoading={() => <TodosLoading />}
+        onEmptyTodos={() => <EmptyTodos />}
+        onEmptySearchResults={
+          (searchText) => <p>No hay resultados para {searchText}</p>
+        }
+        render={todo => (<TodoItem
+          key={todo.text}
+          text={todo.text}
+          completed={todo.completed}
+          onComplete={() => completeTodo(todo.text)}
+          onDelete={() => deleteTodo(todo.text)}
+        />
         )}
-        {error && <TodosError />}
-        {(!loading && searchedTodos.length === 0) && <EmptyTodos />}
-
-        {searchedTodos.map(todo => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+      />
 
       <CreateButton
         setOpenModal={setOpenModal}
@@ -76,6 +78,8 @@ function App() {
           />
         </Modal>
       )}
+
+      <ChangeAlertWithStorageListener sincronize={syncronizedTodos}/>
     </>
   );
 }
