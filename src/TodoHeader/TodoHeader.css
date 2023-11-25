@@ -3,6 +3,7 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	color: white;
+	font-size: 20px;
 }
 
 h1 span {
@@ -12,5 +13,4 @@ h1 span {
 	background-clip: text;
 	font-weight: 800;
 	padding-left: 10px;
-
 }

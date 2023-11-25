@@ -10,6 +10,7 @@ import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
 import { CreateButton } from '../CreateButton';
 import { TodoForm } from '../TodoForm';
+import { UserForm } from '../UserForm';
 import { Modal } from '../Modal';
 import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 
@@ -28,12 +29,15 @@ function App() {
     setOpenModal,
     addTodo,
     syncronizedTodos,
+    user,
+    addUser,
   } = useTodos()
 
   return (
     <>
       <TodoHeader loading={loading}>
         <TodoCounter
+          user={user}
           completedTodos={completedTodos}
           totalTodos={totalTodos}
         />
@@ -66,20 +70,27 @@ function App() {
         )}
       />
 
-      <CreateButton
-        setOpenModal={setOpenModal}
+      <CreateButton 
+      setOpenModal={setOpenModal} 
       />
 
-      {openModal && (
+      {!loading && !user && openModal && (
         <Modal>
-          <TodoForm
-            setOpenModal={setOpenModal}
-            addTodo={addTodo}
-          />
+          <UserForm 
+          setOpenModal={setOpenModal} 
+          addUser={addUser} />
         </Modal>
       )}
 
-      <ChangeAlertWithStorageListener sincronize={syncronizedTodos}/>
+      {user && openModal && (
+        <Modal>
+          <TodoForm 
+          setOpenModal={setOpenModal} 
+          addTodo={addTodo} />
+        </Modal>
+      )}
+
+      <ChangeAlertWithStorageListener sincronize={syncronizedTodos} />
     </>
   );
 }

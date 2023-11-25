@@ -1,14 +1,16 @@
 import React from 'react';
 import './TodoCounter.css';
 
-function TodoCounter({ completedTodos, totalTodos, loading }) {
+function TodoCounter({ user, completedTodos, totalTodos, loading }) {
   
   return (
-    <h1 className={`TodoCounter ${!!loading && "TodoCounter--loading"}`}>
-      Hola, !
-      <div> Hoy has completado <p>{completedTodos}</p> de <p>{totalTodos}</p> To Do's</div>
+    <h2 className={`TodoCounter ${!!loading && "TodoCounter--loading"}`}>
       
-    </h1>
+      Hola, {user}! <br />
+      
+      Hoy has completado <span>{completedTodos}</span> de <span>{totalTodos}</span> To Do's
+      
+    </h2>
   );
 }
 

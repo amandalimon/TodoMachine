@@ -9,6 +9,13 @@ function useTodos() {
     loading,
     error,
   } = useLocalStorage('TODOS_V1', []);
+
+  const {
+		item: user,
+		saveItem: setUser,
+		loading: loadingUser,
+	} = useLocalStorage('USER_V1', '')
+
   const [searchValue, setSearchValue] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
 
@@ -52,6 +59,13 @@ function useTodos() {
     saveTodos(newTodos);
   };
 
+  // eslint-disable-next-line
+	React.useEffect(() => !loadingUser && !user && setOpenModal(true), [])
+
+	const addUser = (user) => {
+		setUser(user)
+	}
+
   return {
     loading,
     error,
@@ -66,6 +80,8 @@ function useTodos() {
     setOpenModal,
     addTodo,
     syncronizedTodos,
+    user,
+    addUser,
   }
 }
 

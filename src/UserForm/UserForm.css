@@ -1,0 +1,54 @@
+.UserForm {
+	background-image: linear-gradient(to right bottom, #2d4356, #5d5b77, #93738d, #c58f99, #eab2a0);
+    width: 90%;
+    max-width: 300px;
+    padding: 33px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+	color: lavenderblush
+  }
+
+.UserForm h1{
+	line-height: 30px;
+	font-size: 30px;
+}
+
+.UserForm label {
+	margin-bottom: 8px;
+	font-size: 1.2rem;
+	color: lavender;
+}
+
+.UserForm input {
+	width: 60%;
+	height: 24px;
+	padding: 12px;
+	border: none;
+	border-radius: 20px;
+	outline: none;
+	margin-bottom: 20px;
+	font-family: 'kalam';
+	font-size: 18px;
+	color: #5d5b77;
+}
+
+.UserForm__button {
+	width: max-content;
+	height: 52px;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	cursor: pointer;
+	background: #eabbac;
+	border-radius: 20px;
+	font-family: 'kalam';
+	padding-inline: 20px;
+}
+
+.UserForm__button:hover {
+	background-position: right center;
+}
