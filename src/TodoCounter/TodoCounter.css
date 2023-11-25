@@ -1,13 +1,18 @@
 .TodoCounter {
-font-size:24px;
+font-size:30px;
+color: white;
 text-align:center;
-margin:0;
-padding:48px;
-font-weight:400
+margin: 24px 0px;
+font-weight: 400;
+flex-direction: column;
 }
 
-.TodoCounter span {
+.TodoCounter p {
     font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    display: inline-block;
+    margin: 0px 0px 10px;
 }
 
 .TodoCounter--loading{

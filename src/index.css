@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Kanit&display=swap');
+
 body {
   margin: 0;
   padding: 0;
-  background: #f2f4f5;
-  color: #1e1e1f;
-  font-family: 'montserrat', Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(to bottom, #2d4356, #5d5b77, #93738d, #c58f99, #eab2a0);
+  font-family: 'Kalam', sans-serif;
+  display:flex;
+  justify-content: center;
 }
 
 #root {
+  display:block;
+  width: auto;
   margin: 0 24px;
-  position: relative;
   min-height: 100vh;
 }

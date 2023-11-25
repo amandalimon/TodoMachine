@@ -1,5 +1,6 @@
 import React from "react";
 import { withStorageListener } from "./withStorageListener";
+import './ChangeAlert.css'
 
 function ChangeAlert({ show, toggleShow}) {
     if(show){
@@ -12,7 +13,7 @@ function ChangeAlert({ show, toggleShow}) {
                     className="TodoForm-button TodoForm-button--add"
                     onClick={toggleShow}
                 >
-                    Yes!
+                    Yup!
                 </button>
                 </div>
             </div>

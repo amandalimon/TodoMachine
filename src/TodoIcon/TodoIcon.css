@@ -7,7 +7,7 @@
   width: 48px;
   font-size: 24px;
   font-weight: bold;
-  /* background-color: #CCC; */
+  
 }
 
 .Icon-container-check {
@@ -24,7 +24,7 @@
   right: 0;
 }
 .Icon-container-delete:hover {
-  color: red;
+  color: maroon;
 }
 
 .Icon-svg {
@@ -36,5 +36,5 @@
   fill: green;
 }
 .Icon-container-delete:hover .Icon-svg {
-  fill: red;
+  fill: indianred;
 }

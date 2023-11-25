@@ -4,12 +4,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: #1e1e1f50 !important;
     z-index: 2;
-}
-
-.ChangeAlert-bg body {
-    background: initial; /* o background: none; */
 }
 
 .ChangeAlert-container {
@@ -19,6 +14,7 @@
     right: -10px;
     padding: 34px;
     background-color: #1e1e1f;
+    
     color: #f2f4f5;
     z-index: 2;
     text-align: center;
@@ -28,4 +24,7 @@
 .ChangeAlert-container button {
     margin-top: 16px;
     margin-bottom: 16px;
+    color: #f2f4f5;
+
+   background-image: linear-gradient(to right, #2d4356, #5d5b77, #93738d, #c58f99, #eab2a0);
 }
