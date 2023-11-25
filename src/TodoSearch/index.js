@@ -8,6 +8,7 @@ function TodoSearch({ searchValue, setSearchValue, loading }) {
 
   return (
     <input
+      id="TodoSearch"
       className="TodoSearch"
       placeholder="Buscar To Do's"
       value={searchValue}

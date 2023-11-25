@@ -22,6 +22,7 @@ function TodoForm({ addTodo, setOpenModal }) {
         <form onSubmit={onSubmit}>
             <label> Escribe una tarea</label>
             <textarea
+                id="newTodoValue"
                 placeholder="Comprar aguacate"
                 value={newTodoValue}
                 onChange={onChange}

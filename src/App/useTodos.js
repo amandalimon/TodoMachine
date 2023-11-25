@@ -59,8 +59,12 @@ function useTodos() {
     saveTodos(newTodos);
   };
 
-  // eslint-disable-next-line
-	React.useEffect(() => !loadingUser && !user && setOpenModal(true), [])
+  React.useEffect(() => {  
+    if (!loadingUser && !user) {
+      setOpenModal(true);
+    }
+    return () => {};
+  }, [loadingUser, user, setOpenModal]);
 
 	const addUser = (user) => {
 		setUser(user)

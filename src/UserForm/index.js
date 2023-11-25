@@ -22,14 +22,16 @@ function UserForm({ setOpenModal, addUser }) {
 			<h1>
 				¡Hola! <br /> Bienvenido a TODO Machine :)
 			</h1>
-			<label>¿Cuál es tu nombre?</label>
-			<input 
-				type='text'
-				placeholder='Tu nombre'
-				maxLength='13'
-				value={userValue}
-				onChange={onChangeInputValue}
-			/>
+			<label>¿Cuál es tu nombre?
+				<input
+					type='text'
+					id="nombre"
+					placeholder='Tu nombre'
+					maxLength='13'
+					value={userValue}
+					onChange={onChangeInputValue}
+				/>
+			</label>
 			<button className='UserForm__button' type='submit'>
 				¡Empecemos!
 			</button>
