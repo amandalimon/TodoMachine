@@ -11,10 +11,10 @@ function useTodos() {
   } = useLocalStorage('TODOS_V1', []);
 
   const {
-		item: user,
-		saveItem: setUser,
-		loading: loadingUser,
-	} = useLocalStorage('USER_V1', '')
+    item: user,
+    saveItem: setUser,
+    loading: loadingUser,
+  } = useLocalStorage('USER_V1', '')
 
   const [searchValue, setSearchValue] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
@@ -24,13 +24,11 @@ function useTodos() {
   ).length;
   const totalTodos = todos.length;
 
-  const searchedTodos = todos.filter(
-    (todo) => {
-      const todoText = todo.text.toLowerCase();
-      const searchText = searchValue.toLowerCase();
-      return todoText.includes(searchText);
-    }
-  );
+  const searchedTodos = todos.filter((todo) => {
+    const todoText = (todo.text || '').toLowerCase();
+    const searchText = searchValue.toLowerCase();
+    return todoText.includes(searchText);
+  });
 
   const addTodo = (text) => {
     const newTodos = [...todos];
@@ -59,34 +57,39 @@ function useTodos() {
     saveTodos(newTodos);
   };
 
-  React.useEffect(() => {  
+  React.useEffect(() => {
     if (!loadingUser && !user) {
       setOpenModal(true);
     }
-    return () => {};
+    return () => { };
   }, [loadingUser, user, setOpenModal]);
 
-	const addUser = (user) => {
-		setUser(user)
-	}
+  const addUser = (user) => {
+    setUser(user)
+  }
 
-  return {
+  const states = {
     loading,
     error,
-    completedTodos,
     totalTodos,
+    completedTodos,
     searchValue,
-    setSearchValue,
     searchedTodos,
+    openModal,
+    user,
+  }
+
+  const stateUpdaters = {
+    setSearchValue,
     completeTodo,
     deleteTodo,
-    openModal,
     setOpenModal,
     addTodo,
     syncronizedTodos,
-    user,
     addUser,
   }
+
+  return { states, stateUpdaters };
 }
 
 export { useTodos };
