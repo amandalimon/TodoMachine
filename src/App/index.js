@@ -70,23 +70,23 @@ function App() {
         )}
       />
 
-      <CreateButton 
-      setOpenModal={setOpenModal} 
+      <CreateButton
+        setOpenModal={setOpenModal}
       />
 
       {!loading && !user && openModal && (
         <Modal>
-          <UserForm 
-          setOpenModal={setOpenModal} 
-          addUser={addUser} />
+          <UserForm
+            setOpenModal={setOpenModal}
+            addUser={addUser} />
         </Modal>
       )}
 
       {user && openModal && (
         <Modal>
-          <TodoForm 
-          setOpenModal={setOpenModal} 
-          addTodo={addTodo} />
+          <TodoForm
+            setOpenModal={setOpenModal}
+            addTodo={addTodo} />
         </Modal>
       )}
 
