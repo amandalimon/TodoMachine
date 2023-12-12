@@ -6,8 +6,7 @@
   height: 48px;
   width: 48px;
   font-size: 24px;
-  font-weight: bold;
-  
+  font-weight: bold; 
 }
 
 .Icon-container-check {
@@ -25,6 +24,14 @@
 }
 .Icon-container-delete:hover {
   color: maroon;
+}
+
+.Icon-container-edit {
+  color: gainsboro;
+}
+
+.Icon-container-edit:hover {
+  color: plum;
 }
 
 .Icon-svg {

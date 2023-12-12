@@ -10,7 +10,9 @@
   }
   
   .TodoItem-p {
-    margin: 24px 0 24px 24px;
+    display: flex;
+    align-items: center;
+    margin: 18px 0px 18px 18px;
     width: calc(100% - 120px);
     font-size: 18px;
     line-height: 24px;

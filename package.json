@@ -4,7 +4,8 @@
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
-    "react-scripts": "5.0.1",
+    "react-router-dom": "^6.20.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -33,6 +34,8 @@
   },
   "homepage": "https://amandalimon.github.io/TodoMachine",
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-private-property-in-object": "^7.23.4",
     "gh-pages": "^6.0.0"
   }
 }
