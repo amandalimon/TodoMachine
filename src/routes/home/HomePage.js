@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTodos } from '../useTodos'
 import { TodoHeader } from '../../ui/TodoHeader';
 import { TodoCounter } from '../../ui/TodoCounter';
@@ -9,12 +10,12 @@ import { TodosLoading } from '../../ui/TodosLoading';
 import { TodosError } from '../../ui/TodosError';
 import { EmptyTodos } from '../../ui/EmptyTodos';
 import { CreateButton } from '../../ui/CreateButton';
-import { TodoForm } from '../../ui/TodoForm';
 import { UserForm } from '../../ui/UserForm';
 import { Modal } from '../../ui/Modal';
-import { ChangeAlertWithStorageListener } from '../../ui/ChangeAlert';
+import { ChangeAlert } from '../../ui/ChangeAlert';
 
 function HomePage() {
+    const navigate = useNavigate();
     const { states, stateUpdaters } = useTodos();
 
     const {
@@ -33,7 +34,6 @@ function HomePage() {
         completeTodo,
         deleteTodo,
         setOpenModal,
-        addTodo,
         syncronizedTodos,
         addUser,
     } = stateUpdaters;
@@ -66,20 +66,28 @@ function HomePage() {
                     (searchText) => <p>No hay resultados para {searchText}</p>
                 }
                 render={todo => (<TodoItem
-                    key={todo.text}
+                    key={todo.id}
                     text={todo.text}
                     completed={todo.completed}
-                    onComplete={() => completeTodo(todo.text)}
-                    onDelete={() => deleteTodo(todo.text)}
+                    onEdit={() => {
+                        navigate(
+                            '/edit/' + todo.id,
+                            {
+                                state: { todo }
+                            }
+                        );
+                    }}
+                    onComplete={() => completeTodo(todo.id)}
+                    onDelete={() => deleteTodo(todo.id)}
                 />
                 )}
             />
 
             <CreateButton
-                setOpenModal={setOpenModal}
+                onClick={() => navigate('/new')}
             />
 
-            {!loading && !user && openModal && (
+            {!user && openModal && (
                 <Modal>
                     <UserForm
                         setOpenModal={setOpenModal}
@@ -87,15 +95,7 @@ function HomePage() {
                 </Modal>
             )}
 
-            {user && openModal && (
-                <Modal>
-                    <TodoForm
-                        setOpenModal={setOpenModal}
-                        addTodo={addTodo} />
-                </Modal>
-            )}
-
-            <ChangeAlertWithStorageListener sincronize={syncronizedTodos} />
+            <ChangeAlert sincronize={syncronizedTodos} />
         </>
     );
 }

@@ -5,15 +5,15 @@
 	width: 84px;
 	height: 84px;
 	position: fixed;
-	bottom: 50%;
-	right: 25%;
+	bottom: 24px;
+	right: 24px;
 	font-size: 50px;
 	font-weight: bold;
 	color: #fafafa;
 	border: none;
 	border-radius: 50%;
 	cursor: pointer;
-  background-image: linear-gradient(to right, #efbbcf, #e1aac0, #d49ab1, #c68aa3, #b97a95);
+  	background-image: linear-gradient(to right, #efbbcf, #e1aac0, #d49ab1, #c68aa3, #b97a95);
 	background-size: 200% auto;
 }
 
@@ -26,11 +26,11 @@
 	width: max-content;
 	position: absolute;
 	opacity: 0;
-	left: 88px;
+	right: 88px;
 	padding: 12px;
 	font-size: 1rem;
 	border-radius: 8px;
-  background-image: linear-gradient(to left, #b97a95, #bc7e98, #bf829c, #c3869f, #c68aa3);
+  	background-image: linear-gradient(to right, #b97a95, #bc7e98, #bf829c, #c3869f, #c68aa3);
 	transition: opacity 0.5s 0s ease;
 }
 

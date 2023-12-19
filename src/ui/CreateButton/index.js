@@ -1,14 +1,14 @@
 import './CreateButton.css';
 
-function CreateButton ({setOpenModal}) {
+function CreateButton(props) {
     return (
-        <button 
-        className="CreateButton"
-            onClick={
-             () => {setOpenModal(state => !state);}
-            }
-        >+</button>
+        <button
+            className="CreateButton"
+            onClick={props.onClick}
+        >
+            +
+        </button>
     );
 }
 
-export {CreateButton};
+export { CreateButton };

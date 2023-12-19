@@ -9,6 +9,8 @@ function TodosLoading()
         <p className="LoadingTodo-text"></p>
         <span className="LoadingTodo-deleteIcon"></span>
       </div>
+
+      
     );
   }
 

@@ -9,6 +9,13 @@ form {
     flex-direction: column;
     border-radius: 20px;
   }
+
+  .new-todo-container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   label {
     text-align: center;
@@ -37,7 +44,7 @@ form {
   }
   
   textarea:focus {
-    outline-color: #eab2a0;
+    outline-color: #e0b1ba;
   }
   
   .TodoForm-buttonContainer {

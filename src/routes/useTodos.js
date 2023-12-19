@@ -8,7 +8,7 @@ function useTodos() {
     syncronizedItem: syncronizedTodos,
     loading,
     error,
-  } = useLocalStorage('TODOS_V1', []);
+  } = useLocalStorage('TODOS_V2', []);
 
   const {
     item: user,
@@ -17,7 +17,7 @@ function useTodos() {
   } = useLocalStorage('USER_V1', '')
 
   const [searchValue, setSearchValue] = React.useState('');
-  const [openModal, setOpenModal] = React.useState(false);
+  const [openModal, setOpenModal] = React.useState(false)
 
   const completedTodos = todos.filter(
     todo => !!todo.completed
@@ -31,27 +31,45 @@ function useTodos() {
   });
 
   const addTodo = (text) => {
+    const id = newTodoId();
     const newTodos = [...todos];
     newTodos.push({
+      id,
       text,
       completed: false,
     });
     saveTodos(newTodos);
   };
 
-  const completeTodo = (text) => {
+  const editTodo = (id, newText) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex(
-      (todo) => todo.text === text
+      (todo) => todo.id === id
+    );
+    newTodos[todoIndex].text = newText;
+    saveTodos(newTodos);
+  };
+
+  const getTodo = (id) => {
+    const todoIndex = todos.findIndex(
+      (todo) => todo.id === id
+    );
+    return todos[todoIndex];
+  }
+
+  const completeTodo = (id) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.id === id
     );
     newTodos[todoIndex].completed = true;
     saveTodos(newTodos);
   };
 
-  const deleteTodo = (text) => {
+  const deleteTodo = (id) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex(
-      (todo) => todo.text === text
+      (todo) => todo.id === id
     );
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
@@ -77,6 +95,7 @@ function useTodos() {
     searchedTodos,
     openModal,
     user,
+    getTodo,
   }
 
   const stateUpdaters = {
@@ -87,9 +106,14 @@ function useTodos() {
     addTodo,
     syncronizedTodos,
     addUser,
+    editTodo,
   }
 
   return { states, stateUpdaters };
+}
+
+function newTodoId() {
+  return Date.now();
 }
 
 export { useTodos };
