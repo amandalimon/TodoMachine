@@ -5,19 +5,12 @@ function useTodos() {
   const {
     item: todos,
     saveItem: saveTodos,
-    syncronizedItem: syncronizedTodos,
+    synchronizeItem: synchronizedTodos,
     loading,
     error,
   } = useLocalStorage('TODOS_V2', []);
 
-  const {
-    item: user,
-    saveItem: setUser,
-    loading: loadingUser,
-  } = useLocalStorage('USER_V1', '')
-
   const [searchValue, setSearchValue] = React.useState('');
-  const [openModal, setOpenModal] = React.useState(false)
 
   const completedTodos = todos.filter(
     todo => !!todo.completed
@@ -75,17 +68,6 @@ function useTodos() {
     saveTodos(newTodos);
   };
 
-  React.useEffect(() => {
-    if (!loadingUser && !user) {
-      setOpenModal(true);
-    }
-    return () => { };
-  }, [loadingUser, user, setOpenModal]);
-
-  const addUser = (user) => {
-    setUser(user)
-  }
-
   const states = {
     loading,
     error,
@@ -93,8 +75,6 @@ function useTodos() {
     completedTodos,
     searchValue,
     searchedTodos,
-    openModal,
-    user,
     getTodo,
   }
 
@@ -102,10 +82,8 @@ function useTodos() {
     setSearchValue,
     completeTodo,
     deleteTodo,
-    setOpenModal,
     addTodo,
-    syncronizedTodos,
-    addUser,
+    synchronizedTodos,
     editTodo,
   }
 

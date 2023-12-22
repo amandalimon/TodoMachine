@@ -1,6 +1,6 @@
 import React from 'react';
-import './TodoForm.css';
 import { useNavigate } from 'react-router-dom';
+import './TodoForm.css';
 
 function TodoForm(props) {
     const navigate = useNavigate();
@@ -38,7 +38,6 @@ function TodoForm(props) {
                     >
                         Cancelar
                     </button>
-
                     <button
                         className="TodoForm-button TodoForm-button--add"
                         type="submit"

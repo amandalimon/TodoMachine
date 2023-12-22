@@ -30,7 +30,7 @@
 	padding: 12px;
 	font-size: 1rem;
 	border-radius: 8px;
-  	background-image: linear-gradient(to right, #b97a95, #bc7e98, #bf829c, #c3869f, #c68aa3);
+  	background-image: linear-gradient(to left, #efbbcf, #e1aac0, #d49ab1, #c68aa3, #b97a95);
 	transition: opacity 0.5s 0s ease;
 }
 

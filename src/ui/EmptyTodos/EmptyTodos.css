@@ -1,0 +1,10 @@
+.EmptyTodos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.EmptyTodos-p {
+    color:whitesmoke;
+    font-size: 20px;
+}

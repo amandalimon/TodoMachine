@@ -10,8 +10,6 @@ import { TodosLoading } from '../../ui/TodosLoading';
 import { TodosError } from '../../ui/TodosError';
 import { EmptyTodos } from '../../ui/EmptyTodos';
 import { CreateButton } from '../../ui/CreateButton';
-import { UserForm } from '../../ui/UserForm';
-import { Modal } from '../../ui/Modal';
 import { ChangeAlert } from '../../ui/ChangeAlert';
 
 function HomePage() {
@@ -25,24 +23,19 @@ function HomePage() {
         completedTodos,
         searchValue,
         searchedTodos,
-        openModal,
-        user,
     } = states;
 
     const {
         setSearchValue,
         completeTodo,
         deleteTodo,
-        setOpenModal,
-        syncronizedTodos,
-        addUser,
+        synchronizedTodos,
     } = stateUpdaters;
 
     return (
         <>
             <TodoHeader loading={loading}>
                 <TodoCounter
-                    user={user}
                     completedTodos={completedTodos}
                     totalTodos={totalTodos}
                 />
@@ -87,15 +80,7 @@ function HomePage() {
                 onClick={() => navigate('/new')}
             />
 
-            {!user && openModal && (
-                <Modal>
-                    <UserForm
-                        setOpenModal={setOpenModal}
-                        addUser={addUser} />
-                </Modal>
-            )}
-
-            <ChangeAlert sincronize={syncronizedTodos} />
+            <ChangeAlert sincronize={synchronizedTodos} />
         </>
     );
 }

@@ -2,8 +2,9 @@ import React from 'react';
 
 function useLocalStorage(itemName, initialValue) {
   const [state, dispatch] = React.useReducer(reducer, initialState({ initialValue }));
+
   const {
-    sincronizedItem,
+    synchronizedItem,
     error,
     loading,
     item,
@@ -25,8 +26,8 @@ function useLocalStorage(itemName, initialValue) {
     payload: item,
   });
 
-  const onSincronize = () => dispatch({
-    type: actionTypes.sincronize,
+  const onSynchronize = () => dispatch({
+    type: actionTypes.synchronize,
   });
 
   React.useEffect(() => {
@@ -47,7 +48,7 @@ function useLocalStorage(itemName, initialValue) {
         onError(error);
       }
     }, 2000);
-  }, [sincronizedItem, itemName, initialValue]);
+  }, [synchronizedItem, itemName, initialValue]);
 
   const saveItem = (newItem) => {
     try {
@@ -58,8 +59,8 @@ function useLocalStorage(itemName, initialValue) {
     }
   };
 
-  const syncronizedItem = () => {
-    onSincronize();
+  const synchronizeItem = () => {
+    onSynchronize();
   }
 
   return {
@@ -67,7 +68,7 @@ function useLocalStorage(itemName, initialValue) {
     saveItem,
     loading,
     error,
-    syncronizedItem,
+    synchronizeItem,
   };
 }
 
@@ -75,14 +76,14 @@ const initialState = ({ initialValue }) => ({
   item: initialValue,
   loading: true,
   error: false,
-  sincronizedItem: true,
+  synchronizedItem: true,
 });
 
 const actionTypes = {
   error: 'ERROR',
   success: 'SUCCESS',
   save: 'SAVE',
-  sincronize: 'SINCRONIZE'
+  synchronize: 'SYNCHRONIZE'
 };
 
 const reducerObject = (state, payload) => ({
@@ -95,15 +96,15 @@ const reducerObject = (state, payload) => ({
     error: false,
     loading: false,
     item: payload,
-    sincronizedItem: true,
+    synchronizedItem: true,
   },
   [actionTypes.save]: {
     ...state,
     item: payload
   },
-  [actionTypes.sincronize]: {
+  [actionTypes.synchronize]: {
     ...state,
-    sincronizedItem: false,
+    synchronizedItem: false,
     loading: true,
   },
 })
