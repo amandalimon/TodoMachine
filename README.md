@@ -11,6 +11,7 @@ This project not only provided me with the opportunity to develop practical skil
  - Advanced States: Experience loading states and error handling using useEffect.     
  - React Context: Efficiently organize and manage the application state with React Context.     
  - Portals and Modals: Create and manage your tasks in a user-friendly environment thanks to the use of portals and modals in React.
+ - Change alert to refresh the page when the user makes changes in another tab or window.
 
 ## Technologies Used:
 
