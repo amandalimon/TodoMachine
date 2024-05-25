@@ -2,9 +2,8 @@ import React from 'react';
 
 function useLocalStorage(itemName, initialValue) {
   const [state, dispatch] = React.useReducer(reducer, initialState({ initialValue }));
-
   const {
-    synchronizedItem,
+    sincronizedItem,
     error,
     loading,
     item,
@@ -26,8 +25,8 @@ function useLocalStorage(itemName, initialValue) {
     payload: item,
   });
 
-  const onSynchronize = () => dispatch({
-    type: actionTypes.synchronize,
+  const onSincronize = () => dispatch({
+    type: actionTypes.sincronize,
   });
 
   React.useEffect(() => {
@@ -38,52 +37,53 @@ function useLocalStorage(itemName, initialValue) {
 
         if (!localStorageItem) {
           localStorage.setItem(itemName, JSON.stringify(initialValue));
-          parsedItem = [initialValue];
+          parsedItem = initialValue;
         } else {
           parsedItem = JSON.parse(localStorageItem);
         }
 
-        onSuccess(parsedItem)
+        onSuccess(parsedItem);
       } catch (error) {
         onError(error);
       }
-    }, 2000);
-  }, [synchronizedItem, itemName, initialValue]);
+    }, 3000);
+  }, [sincronizedItem]);
 
   const saveItem = (newItem) => {
     try {
-      localStorage.setItem(itemName, JSON.stringify(newItem));
+      const stringifiedItem = JSON.stringify(newItem);
+      localStorage.setItem(itemName, stringifiedItem);
       onSave(newItem);
     } catch (error) {
-      onError();
+      onError(error);
     }
   };
 
-  const synchronizeItem = () => {
-    onSynchronize();
-  }
+  const sincronizeItem = () => {
+    onSincronize();
+  };
 
   return {
     item,
     saveItem,
     loading,
     error,
-    synchronizeItem,
+    sincronizeItem,
   };
 }
 
 const initialState = ({ initialValue }) => ({
-  item: initialValue,
-  loading: true,
+  sincronizedItem: true,
   error: false,
-  synchronizedItem: true,
+  loading: true,
+  item: initialValue,
 });
 
 const actionTypes = {
   error: 'ERROR',
   success: 'SUCCESS',
   save: 'SAVE',
-  synchronize: 'SYNCHRONIZE'
+  sincronize: 'SINCRONIZE',
 };
 
 const reducerObject = (state, payload) => ({
@@ -95,19 +95,19 @@ const reducerObject = (state, payload) => ({
     ...state,
     error: false,
     loading: false,
+    sincronizedItem: true,
     item: payload,
-    synchronizedItem: true,
   },
   [actionTypes.save]: {
     ...state,
-    item: payload
+    item: payload,
   },
-  [actionTypes.synchronize]: {
+  [actionTypes.sincronize]: {
     ...state,
-    synchronizedItem: false,
+    sincronizedItem: false,
     loading: true,
   },
-})
+});
 
 const reducer = (state, action) => {
   return reducerObject(state, action.payload)[action.type] || state;

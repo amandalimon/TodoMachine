@@ -5,16 +5,15 @@ function useTodos() {
   const {
     item: todos,
     saveItem: saveTodos,
-    synchronizeItem: synchronizedTodos,
+    sincronizeItem: sincronizeTodos,
     loading,
     error,
   } = useLocalStorage('TODOS_V2', []);
 
   const [searchValue, setSearchValue] = React.useState('');
 
-  const completedTodos = todos.filter(
-    todo => !!todo.completed
-  ).length;
+  const completedTodos = todos.filter
+    (todo => !!todo.completed).length;
   const totalTodos = todos.length;
 
   const searchedTodos = todos.filter((todo) => {
@@ -24,12 +23,12 @@ function useTodos() {
   });
 
   const addTodo = (text) => {
-    const id = newTodoId();
+    const id = newTodoId(todos);
     const newTodos = [...todos];
     newTodos.push({
-      id,
-      text,
       completed: false,
+      text,
+      id,
     });
     saveTodos(newTodos);
   };
@@ -83,7 +82,7 @@ function useTodos() {
     completeTodo,
     deleteTodo,
     addTodo,
-    synchronizedTodos,
+    sincronizeTodos,
     editTodo,
   }
 

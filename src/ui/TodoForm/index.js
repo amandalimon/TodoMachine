@@ -21,32 +21,30 @@ function TodoForm(props) {
     };
 
     return (
-        <div className='new-todo-container'>
-            <form onSubmit={onSubmit}>
-                <label>{props.label}</label>
-                <textarea
-                    id="newTodoValue"
-                    placeholder="Comprar aguacate"
-                    value={newTodoValue}
-                    onChange={onChange}
-                    required
-                />
-                <div className="TodoForm-buttonContainer">
-                    <button
-                        className="TodoForm-button TodoForm-button--cancel"
-                        onClick={onCancel}
-                    >
-                        Cancelar
-                    </button>
-                    <button
-                        className="TodoForm-button TodoForm-button--add"
-                        type="submit"
-                    >
-                        {props.submitText}
-                    </button>
-                </div>
-            </form>
-        </div>
+        <form onSubmit={onSubmit}>
+            <label>{props.label}</label>
+            <textarea
+                id="newTodoValue"
+                value={newTodoValue}
+                onChange={onChange} required
+                placeholder="Comprar aguacate"
+            />
+            <div className="TodoForm-buttonContainer">
+                <button
+                    type="button"
+                    className="TodoForm-button TodoForm-button--cancel"
+                    onClick={onCancel}
+                >
+                    Cancelar
+                </button>
+                <button
+                    type="submit"
+                    className="TodoForm-button TodoForm-button--add"
+                >
+                    {props.submitText}
+                </button>
+            </div>
+        </form>
     );
 }
 

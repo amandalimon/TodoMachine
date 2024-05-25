@@ -29,7 +29,7 @@ function HomePage() {
         setSearchValue,
         completeTodo,
         deleteTodo,
-        synchronizedTodos,
+        sincronizeTodos,
     } = stateUpdaters;
 
     return (
@@ -80,7 +80,9 @@ function HomePage() {
                 onClick={() => navigate('/new')}
             />
 
-            <ChangeAlert sincronize={synchronizedTodos} />
+            <ChangeAlert
+                sincronize={sincronizeTodos}
+            />
         </>
     );
 }
