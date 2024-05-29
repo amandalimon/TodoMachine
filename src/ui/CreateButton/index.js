@@ -1,12 +1,13 @@
 import './CreateButton.css';
 
-function CreateButton(props) {
+function CreateButton({onClick, loading}) {
     return (
         <button
             className="CreateButton"
-            onClick={props.onClick}
+            onClick={onClick}
+            disabled={loading}
         >
-            +
+            Agrega una tarea
         </button>
     );
 }

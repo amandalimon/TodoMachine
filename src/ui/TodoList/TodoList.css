@@ -1,5 +1,8 @@
 .TodoList {
-  margin: 0;
-  padding: 0 0 56px 0;
-  width: calc(100% - 62px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px ;
 }

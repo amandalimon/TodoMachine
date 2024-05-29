@@ -16,8 +16,12 @@ function TodoForm(props) {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        props.submitEvent(newTodoValue);
-        navigate('/');
+        if (newTodoValue.length < 4) {
+            alert('El texto debe tener al menos 4 caracteres.');
+        } else {
+            props.submitEvent(newTodoValue);
+            navigate('/');
+        }
     };
 
     return (

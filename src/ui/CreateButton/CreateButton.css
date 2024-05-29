@@ -1,52 +1,26 @@
 .CreateButton {
-	display: flex;
+	display: block;
 	justify-content: center;
 	align-items: center;
-	width: 84px;
-	height: 84px;
+	width: 100%;
+	height: 13%;
 	position: fixed;
-	bottom: 24px;
-	right: 24px;
-	font-size: 50px;
-	font-weight: bold;
-	color: #fafafa;
-	border: none;
-	border-radius: 50%;
-	cursor: pointer;
-  	background-image: linear-gradient(to right, #efbbcf, #e1aac0, #d49ab1, #c68aa3, #b97a95);
-	background-size: 200% auto;
+	bottom: 0;
+	border-style: none;
+	background-color: #F6995C;
+	font-family: "Archivo Black", sans-serif;
+	font-size: x-large;
+	color: whitesmoke;
+	padding: 0;
+	margin: 0;
+	transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .CreateButton:hover {
-	background-position: right center;
+	background-color: #DC5F00;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.CreateButton::after {
-	content: 'Agregar tarea';
-	width: max-content;
-	position: absolute;
-	opacity: 0;
-	right: 88px;
-	padding: 12px;
-	font-size: 1rem;
-	border-radius: 8px;
-  	background-image: linear-gradient(to left, #efbbcf, #e1aac0, #d49ab1, #c68aa3, #b97a95);
-	transition: opacity 0.5s 0s ease;
-}
-
-.CreateButton:hover::after {
-	opacity: 1;
-}
-
-@media only screen and (max-width: 768px) {
-	.CreateButton {
-		width: 64px;
-		height: 64px;
-		bottom: 24px;
-		right: 24px;
-	}
-
-	.CreateButton::after {
-		content: none;
-	}
+.CreateButton:disabled {
+    opacity: 25%;
 }

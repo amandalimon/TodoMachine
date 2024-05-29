@@ -5,7 +5,7 @@ function DeleteIcon ({onDelete}) {
     return (   
     <TodoIcon
        type= "delete"
-       color= "lightcoral"
+       color= "white"
        onClick={onDelete}
     />
     );

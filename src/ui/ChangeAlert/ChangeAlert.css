@@ -13,8 +13,7 @@
     left: -10px;
     right: -10px;
     padding: 34px;
-    background-color: #1e1e1f;
-    
+    background-color: #373A40;
     color: #f2f4f5;
     z-index: 2;
     text-align: center;
@@ -25,6 +24,4 @@
     margin-top: 16px;
     margin-bottom: 16px;
     color: #f2f4f5;
-
-   background-image: linear-gradient(to right, #2d4356, #5d5b77, #93738d, #c58f99, #eab2a0);
 }

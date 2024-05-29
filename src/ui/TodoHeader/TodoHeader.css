@@ -1,3 +1,12 @@
+.TodoHeader {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px 0;
+	background-color: #51829B;
+}
+
 h1 {
 	display: flex;
 	align-items: center;
@@ -7,10 +16,6 @@ h1 {
 }
 
 h1 span {
-    background-image: linear-gradient(to right, #d2e0fb, #c8d4f2, #bec8e9, #b5bddf, #acb1d6);
-	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;
-	background-clip: text;
-	font-weight: 800;
+	color: #EADFB4;
 	padding-left: 10px;
 }

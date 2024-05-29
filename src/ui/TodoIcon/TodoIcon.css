@@ -3,45 +3,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 48px;
-  width: 48px;
-  font-size: 24px;
-  font-weight: bold; 
+  position: relative;
+}
+
+.Icon-svg {
+  width: 30px;
+  height: 30px;
 }
 
 .Icon-container-check {
   position: absolute;
   left: 12px;
 }
-.Icon-container-check--active {
-  color: #4caf50;
+
+.Icon-container-check:hover .Icon-svg {
+  color: darkseagreen;
 }
 
 .Icon-container-delete {
   position: absolute;
-  top: -24px;
-  right: 0;
+  right: 12px;
 }
-.Icon-container-delete:hover {
-  color: maroon;
+
+.Icon-container-delete:hover .Icon-svg {
+  color: lightcoral;
 }
 
 .Icon-container-edit {
   color: gainsboro;
+  margin-left: 0.5em;
 }
 
 .Icon-container-edit:hover {
-  color: plum;
-}
-
-.Icon-svg {
-  width: 24px;
-  height: 24px;
-}
-
-.Icon-container-check:hover .Icon-svg {
-  fill: green;
-}
-.Icon-container-delete:hover .Icon-svg {
-  fill: indianred;
+  color: #F5DD61;
 }

@@ -1,17 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 body {
+  display: block;
+  height: 100vh;
   margin: 0;
-  padding: 0;
-  background-image: linear-gradient(to bottom, #2d4356, #5d5b77, #93738d, #c58f99, #eab2a0);
-  font-family: 'Kalam', sans-serif;
-  display:flex;
-  justify-content: center;
+  background-color: whitesmoke;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #373A40;
 }
 
 #root {
-  display:block;
-  width: auto;
-  margin: 0 24px;
+  width: 100%;
   min-height: 100vh;
+  font-family: "Archivo Black", sans-serif;
 }

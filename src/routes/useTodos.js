@@ -12,8 +12,8 @@ function useTodos() {
 
   const [searchValue, setSearchValue] = React.useState('');
 
-  const completedTodos = todos.filter
-    (todo => !!todo.completed).length;
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
+
   const totalTodos = todos.length;
 
   const searchedTodos = todos.filter((todo) => {
@@ -54,7 +54,7 @@ function useTodos() {
     const todoIndex = newTodos.findIndex(
       (todo) => todo.id === id
     );
-    newTodos[todoIndex].completed = true;
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodos(newTodos);
   };
 

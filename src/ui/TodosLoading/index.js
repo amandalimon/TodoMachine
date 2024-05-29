@@ -1,17 +1,25 @@
 import React from 'react';
 import './TodosLoading.css'
 
-function TodosLoading()
-{
-    return (
+function TodosLoading() {
+  return (
+    <>
       <div className="LoadingTodo-container">
         <span className="LoadingTodo-CompleteIcon"></span>
         <p className="LoadingTodo-text"></p>
-        <span className="LoadingTodo-deleteIcon"></span>
+        <span className="LoadingTodo-DeleteIcon"></span>
       </div>
+      <div className="LoadingTodo-container">
+        <span className="LoadingTodo-CompleteIcon"></span>
+        <p className="LoadingTodo-text"></p>
+        <span className="LoadingTodo-DeleteIcon"></span>
+      </div> <div className="LoadingTodo-container">
+        <span className="LoadingTodo-CompleteIcon"></span>
+        <p className="LoadingTodo-text"></p>
+        <span className="LoadingTodo-DeleteIcon"></span>
+      </div>
+    </>
+  );
+}
 
-      
-    );
-  }
-
-  export {TodosLoading};
+export { TodosLoading };

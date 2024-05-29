@@ -3,7 +3,7 @@ import './TodoHeader.css';
 
 function TodoHeader({ children, loading }) {
     return (
-        <header>
+        <header className="TodoHeader">
             <h1>TODO<span>MACHINE</span></h1>
             {
                 React.Children

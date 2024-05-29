@@ -78,6 +78,7 @@ function HomePage() {
 
             <CreateButton
                 onClick={() => navigate('/new')}
+                loading={loading}
             />
 
             <ChangeAlert
